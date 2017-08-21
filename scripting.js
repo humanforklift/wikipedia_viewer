@@ -1,22 +1,6 @@
 $(document).ready(function() {
         $("#warning").hide();
 
-        //load dog image if after 1 sec delay if screen large enough
-        setTimeout(function(){
-                if ($(window).width() > 1250) {
-                        $("#image").css("visibility", "visible");
-                }
-        }, 1000);
-
-        //hide and show dog image on screen resize
-        $(window).resize(function() {
-                if ($(window).width() < 1250) {
-                        $("#image").css("visibility", "hidden");
-                } else {
-                        $("#image").css("visibility", "visible");
-                }
-        });
-
         function search() {
                 //Gets value of search box to use in API call to wikipedia
                 var itemToSearch = $("#searchInput").val(), results = [], blurbs = [], pageIds, title, body;
@@ -85,8 +69,8 @@ $(document).ready(function() {
         //on search bar text entry
         $("#searchInput").on("keydown", function(e) {
 
-                //tidy heading, move search bar to top of screen, and remove picture
-                $("#tail ,#picture").remove();
+                //tidy heading, move search bar to top of screen
+                $("#tail").remove();
                 $("#heading").css({"margin-top" : "0px"});
 
                 //if enter key pressed close autocomplete menu and run search function
